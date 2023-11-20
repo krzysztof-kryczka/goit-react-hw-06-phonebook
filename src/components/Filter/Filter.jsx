@@ -1,9 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { filterContact } from 'redux/filterSlice';
 
 import css from './Filter.module.css';
 
-const Filter = ({ onFilterChange }) => {
+export const Filter = () => {
+  const dispatch = useDispatch();
+
+  const onFilterChange = e => {
+    dispatch(filterContact(e.target.value));
+  };
+
   return (
     <div className={css.filter}>
       <h2>Find contacts by name</h2>
@@ -16,9 +23,3 @@ const Filter = ({ onFilterChange }) => {
     </div>
   );
 };
-
-Filter.propTypes = {
-  onFilterChange: PropTypes.func.isRequired,
-};
-
-export default Filter;
