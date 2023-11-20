@@ -21,7 +21,7 @@ export const ContactForm = () => {
     const name = form.elements.name.value;
     const number = form.elements.number.value;
     const id = nanoid();
-    const exist = false;
+    let exist = false;
 
     contacts.forEach(contact => {
       if (contact.name.toLowerCase().trim() === name.toLowerCase().trim()) {
